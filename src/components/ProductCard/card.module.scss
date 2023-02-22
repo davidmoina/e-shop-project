@@ -1,0 +1,65 @@
+@use '../../styles/abstracts/variables' as var;
+
+.cardContainer {
+    width: 250px;
+    height: 375px;
+    background-color: white;
+    border: 2px solid #DDE0E5;
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    text-align: center;
+
+    img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+    }
+
+    .infoDiv {
+        height: 110px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 1em;
+
+
+        h5 {
+            margin: 1em 0 0 0;
+        }
+
+        .cardFooter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1em;
+
+            // button {
+            //     width: 3.5rem;
+            //     height: 3.5rem;
+            //     border-radius: 50%;
+            //     background-color: var.$white-color;
+            //     cursor: pointer;
+
+            //     &:hover {
+            //         background-color: var.$secondary-color;
+            //     }
+            // }
+
+            /*Button*/
+            button {
+                border: 1px solid #252525;
+                display: flex;
+                padding: .5em;
+                cursor: pointer;
+                border-radius: 50px;
+                transition: .3s ease-in-out;
+            }
+
+            button:hover {
+                border: 1px solid var.$secondary-color;
+                background-color: var.$secondary-color;
+            }
+        }
+    }
+
+}

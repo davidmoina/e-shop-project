@@ -1,0 +1,11 @@
+@use '../../styles/abstracts/variables' as var;
+
+.signButton {
+    width: 82px;
+    height: 30px;
+    color: var.$dark-color;
+    background-color: var.$white-color;
+    border: 2px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+}

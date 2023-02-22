@@ -1,0 +1,15 @@
+@use '../../styles/abstracts/variables' as var;
+
+.signButton {
+    width: 82px;
+    height: 30px;
+    color: var.$white-color;
+    background-color: #474A57;
+    border: 2px solid #AFAFAF;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #AFAFAF;
+    }
+}
