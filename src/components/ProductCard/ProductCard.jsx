@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './card.module.scss'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
-const ProductCard = ({prod}) => {
+const ProductCard = ({prod, onAdd}) => {
 
-    const {image, title, price} = prod
-
+    const {image, title, price} = prod;
+    
     return (
         <div className={styles.cardContainer}>
             <img src={image}/>
@@ -13,7 +13,7 @@ const ProductCard = ({prod}) => {
                 <h5>{title}</h5>
                 <div className={styles.cardFooter}>
                     <p>{price.toFixed(2)}€</p>
-                    <button><ShoppingBasketIcon/></button>
+                    <button onClick={() => onAdd(prod)}><ShoppingBasketIcon/></button>
                 </div>
             </div>
         </div>  

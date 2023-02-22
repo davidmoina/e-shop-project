@@ -5,13 +5,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SignUpButton from "../SignUpButton/SignUpButton";
 import SignInButton from "../SignInButton/SignInButton";
 import styles from  './navright.module.scss';
+import CartWidget from "../CartWidget/CartWidget";
 
 const NavRight = () => {
 	return(
 	<nav className={styles.navRight}>
 		<ul className="navList">
 			<li><SearchIcon fontSize="large"/></li>
-			<li><ShoppingBasketIcon fontSize="large"/></li>
+			<CartWidget/>
 			<li className={styles.menuIcon}><MenuIcon fontSize="large"/></li>
 		</ul>
 		<div className={styles.divButton}>
