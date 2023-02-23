@@ -4,6 +4,8 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 const ProductCard = ({prod, onAdd}) => {
 
+    
+
     const {image, title, price} = prod;
     
     return (

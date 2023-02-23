@@ -1,0 +1,33 @@
+.cartProduct {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    
+    .infoCartProduct {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5em;
+        
+        .productTitle {
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: center;
+            font-weight: 600;
+            text-overflow: ellipsis;
+        }
+    }
+    
+    .iconClose {
+        width: 25px;
+        height: 25px;
+        
+        &:hover {
+            stroke: red;
+            cursor: pointer;
+        }
+    }
+}
