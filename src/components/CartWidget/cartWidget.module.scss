@@ -1,0 +1,21 @@
+@use '../../styles/abstracts/variables' as var;
+
+.widgetContainer {
+    position: relative;
+
+    .totalSpan {
+        display: inline-block;
+        padding: 0.2em 0;
+        position: absolute;
+        font-size: 1.3rem;
+        width: 20px;
+        height: 20px;
+        right: -8px;
+        bottom: -5px;
+        background-color: var.$warning-color;
+        border-radius: 50%;
+        text-align: center;
+        color: white;
+        font-weight: 500;
+    }
+}

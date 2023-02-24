@@ -10,7 +10,6 @@ html {
 }
 
 body {
-  // background-color: grey;
   font-size: 1.6rem;
 }
 
@@ -22,5 +21,7 @@ body {
 
   li {
       cursor: pointer;
+      display: flex;
+      align-items: center;
   }
 }

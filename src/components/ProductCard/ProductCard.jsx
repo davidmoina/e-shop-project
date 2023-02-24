@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './card.module.scss'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { CartContext } from '../../context/CartContext/CartContext';
 
-const ProductCard = ({prod, onAdd}) => {
+const ProductCard = ({prod}) => {
 
-    
+    const {onAdd} =  useContext(CartContext);
 
     const {image, title, price} = prod;
     

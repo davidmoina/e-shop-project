@@ -11,7 +11,7 @@ const NavRight = () => {
 	return(
 	<nav className={styles.navRight}>
 		<ul className="navList">
-			<li><SearchIcon fontSize="large"/></li>
+			<li><SearchIcon style={{fontSize: 25}}/></li>
 			<CartWidget/>
 			<li className={styles.menuIcon}><MenuIcon fontSize="large"/></li>
 		</ul>
