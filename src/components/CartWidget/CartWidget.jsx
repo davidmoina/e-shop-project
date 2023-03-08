@@ -3,6 +3,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import CartPopUp from '../CartPopUp/CartPopUp';
 import { CartContext } from '../../context/CartContext/CartContext';
 import styles from './cartWidget.module.scss'
+import { Link, NavLink } from 'react-router-dom';
 
 function CartWidget() {
     const [active, setActive] = useState(false);

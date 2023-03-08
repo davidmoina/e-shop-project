@@ -1,0 +1,26 @@
+.headerContainer {
+  height: 692px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://firebasestorage.googleapis.com/v0/b/e-shop-e5007.appspot.com/o/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg?alt=media&token=6287d249-ec67-47c6-ae87-86818b063832');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+
+  .headerText {
+    color: #FFFFFF;
+    width: 70%;
+    max-width: 820px;
+    margin: 10em auto 0;
+    text-align: center;
+    
+    .btnExplore {
+      color: #FFFFFF;
+      border: solid 1px #FFFFFF;
+      border-radius: 6px;
+      padding: 0.6em 1.2em;
+      margin-top: 2em;
+      background-color: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+    }
+  }
+}

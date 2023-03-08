@@ -1,0 +1,46 @@
+@use '../../styles/abstracts/variables' as var;
+
+.itemContainer {
+  display: flex;
+  width: 100%;
+  background-color: #FFFFFF;
+  gap: 1em;
+  padding: 0.5em 0;
+  border-bottom: 2px solid var.$gray-500;
+
+  img {
+    width: 200px;
+    height: 200px;
+    padding: 1em;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+  }
+
+  .infoContainer {
+    width: 70%;
+    position: relative;
+
+    .productDetailsCart {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  
+      h4 {
+        grid-column: 1/3;
+      }
+
+      .closeSpan {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+      }
+    }
+
+    .stockP {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+}

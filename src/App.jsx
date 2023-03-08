@@ -1,5 +1,5 @@
 import CartProvider from "./context/CartContext/CartProvider";
-import Routing from "./Routes/Routing";
+import Routing from "./routes/Routing.routes.jsx";
 
 function App() {
     return (
