@@ -2,16 +2,23 @@ import React, { useContext } from 'react';
 import styles from './card.module.scss'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { CartContext } from '../../context/CartContext/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({prod}) => {
 
     const {onAdd} =  useContext(CartContext);
 
+    const navigate = useNavigate();
+
     const {image, title, price} = prod;
+
+    const handleNavigate = () => {
+        navigate(`/detail/${prod.id}`)
+    }
     
     return (
         <div className={styles.cardContainer}>
-            <img src={image}/>
+            <img src={image} alt={title} onClick={handleNavigate}/>
             <div className={styles.infoDiv}>
                 <h5>{title}</h5>
                 <div className={styles.cardFooter}>
