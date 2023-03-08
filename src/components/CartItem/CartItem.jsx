@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './cartItem.module.scss'
+import CloseIcon from '@mui/icons-material/Close';
+import CheckIcon from '@mui/icons-material/Check';
+import { CartContext } from '../../context/CartContext/CartContext';
 
-const CartItem = () => {
+const CartItem = ({product}) => {
+
+  const {image, price, quantity, title} = product;
+
+  const { onDelete } = useContext(CartContext);
+
   return (
     <div className={styles.itemContainer}>
-      <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="mens t-shirt"  />
+      <img src={image}  />
       <div className={styles.infoContainer}>
         <div className={styles.productDetailsCart}>
-          <h4>Mens Casual Premium Slim Fit T-Shirts</h4>
-          <span>20€</span>
-          <span>1</span>
-          <span className={styles.closeSpan}>X</span>
+          <h4>{title}</h4>
+          <span>{price}€</span>
+          <span>{quantity}</span>
+          <span onClick={() => onDelete(product)} className={styles.closeSpan}><CloseIcon/></span>
         </div>
-        <p className={styles.stockP}><span>V</span> In stock</p>
+        <p className={styles.stockP}><span><CheckIcon/></span> In stock</p>
       </div>
-
     </div>
   )
 }

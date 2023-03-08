@@ -11,6 +11,10 @@ function CartWidget() {
 
     const totalItems = count();
 
+    const hidePopUp = () => {
+        setActive(false);
+    }
+
     return (
         <>
         <div className={styles.widgetContainer}>
@@ -18,8 +22,8 @@ function CartWidget() {
                 <ShoppingBasketIcon style={{fontSize: 25}}/>
                 {totalItems > 0 && <span className={styles.totalSpan}>{totalItems}</span>}
             </li>
+            <CartPopUp active={active} hidePopUp={hidePopUp}/>
         </div>
-        <CartPopUp active={active}/>
         </>
     )
     }

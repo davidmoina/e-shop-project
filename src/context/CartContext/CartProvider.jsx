@@ -8,7 +8,6 @@ const CartProvider = ({children}) => {
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(productsCart));
-        console.log(productsCart)
     }, [productsCart])
 
     const onAdd = (prod) => {
@@ -37,7 +36,6 @@ const CartProvider = ({children}) => {
         const results = productsCart.filter(
             item => item.id !== prod.id
         )
-        // console.log(results);
         setProductsCart(results);
     }
 

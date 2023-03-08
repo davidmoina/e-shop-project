@@ -4,10 +4,15 @@ import ItemCartWidget from '../ItemCartWidget/ItemCartWidget'
 import styles from './cartPopUp.module.scss'
 import { useNavigate } from "react-router-dom"; 
 
-function CartPopUp({active}) {
+function CartPopUp({active, hidePopUp}) {
     const {productsCart, clearCart, totalPrice} = useContext(CartContext);
 
     const navigate = useNavigate()
+
+    const handleGoToCart = () => {
+        hidePopUp();
+        navigate("/cart")
+    }
 
     return (
         <div id="hello" className={`${styles.containerCartProducts} ${!active && styles.hiddenCart}`}>
@@ -23,7 +28,7 @@ function CartPopUp({active}) {
                 <button className={styles.btnClearCart} onClick={clearCart}>
                     Clear cart
                 </button>
-                <button className={`${styles.btnClearCart} ${styles.btnGoCart}`} onClick={() => navigate("/cart")}>
+                <button className={`${styles.btnClearCart} ${styles.btnGoCart}`} onClick={handleGoToCart}>
                     Go to cart
                 </button>
             </div>

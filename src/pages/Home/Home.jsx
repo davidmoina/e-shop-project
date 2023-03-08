@@ -7,7 +7,7 @@ function Home() {
     return (
         <>
         <div className={styles.headerContainer}>
-            <Header/>
+            {/* <Header/> */}
             <div className={styles.headerText}>
                 <h2>Spring Collection is here</h2>
                 <p>The time is now for it to be okay to be great. People in this world shun people for being great. For being a bright color. For standing out. But the time is now to be okay to be the greatest you. </p>
