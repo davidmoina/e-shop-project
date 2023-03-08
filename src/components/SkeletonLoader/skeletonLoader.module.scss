@@ -1,0 +1,56 @@
+.card {
+  width: 1168px;
+  height: 639px;
+  background: #ffff;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 500px;
+  left: 50%;
+  padding: 12px 10px;
+}
+
+.cardLoad {
+  width: 48%;
+  height: 100%;
+  position: relative;
+  float: left;
+  background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+  40%, #e5e5e5 48%);
+  border-radius: 12px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 2s infinite;
+}
+
+.cardLoadExtremeTitle {
+  width: 50%;
+  height: 40px;
+  position: relative;
+  float: right;
+  border-radius: 5px;
+  background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+  40%, #e5e5e5 48%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 2s infinite;
+}
+
+.cardLoadExtremeDescription {
+  width: 50%;
+  height: 70%;
+  position: relative;
+  float: right;
+  border-radius: 5px;
+  background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+  40%, #e5e5e5 48%);
+  margin-top: 10px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 2s infinite;
+}
+
+@keyframes load89234 {
+  100% {
+    background-position: -100% 0;
+  }
+}

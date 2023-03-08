@@ -1,4 +1,86 @@
+@use '../../styles/abstracts/variables' as var;
+
 .container {
   max-width: 1165px;
   margin: 10rem auto 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2em;
+
+  .path {
+    grid-column: 1/3;
+
+    p {
+      font-size: 1.4rem;
+      color: var.$gray-600;
+    }
+  }
+
+  .imageContainer {
+    max-width: 568px;
+    height: 639px;
+    padding: 2em;
+    border: 1px solid var.$gray-500;
+    border-radius: 12px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
+  }
+
+  .detailsContainer {
+    p{
+      color: var.$secondary-color;
+      line-height: 2.2rem;
+    }
+
+    h3 {
+      font-size: 2.6rem;
+    }
+
+    h4 {
+      font-size: 2rem;
+    }
+
+    .starsDiv {
+      font-size: 2rem;
+    }
+
+    .colorsDiv {
+      font-size: 3rem;
+
+      h4 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .btnContainer {
+    margin-top: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    .btnAddCart {
+      width: 185px;
+      height: 40px;
+      border-radius: 6px;
+      border: none;
+      background-color: var.$primary-color;
+      color: var.$white-color;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var.$info-color;
+      }
+    }
+
+    span > * {
+      cursor: pointer;
+      transition: 3s ease;
+    }
+  }
 }
