@@ -3,10 +3,10 @@ import styles from './skeletonLoader.module.scss'
 
 const SkeletonLoader = () => {
   return (
-    <div class={styles.card}>
-      <div class={styles.cardLoad}></div>
-      <div class={styles.cardLoadExtremeTitle}></div>
-      <div class={styles.cardLoadExtremeDescription}></div>
+    <div className={styles.card}>
+      <div className={styles.cardLoad}></div>
+      <div className={styles.cardLoadExtremeTitle}></div>
+      <div className={styles.cardLoadExtremeDescription}></div>
     </div>
   )
 }

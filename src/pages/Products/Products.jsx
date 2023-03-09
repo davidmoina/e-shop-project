@@ -7,7 +7,13 @@ function Products() {
     return (
         <>
         <main className={styles.productContainer}>
-            <h2>Products</h2>
+            <div className={styles.topContainer}>
+                <h2>Products</h2>
+                <span>Sort V</span>
+            </div>
+            <aside className={styles.asideContainer}>
+
+            </aside>
             <ProductsContainer>
                 <ProductsList/>
             </ProductsContainer>

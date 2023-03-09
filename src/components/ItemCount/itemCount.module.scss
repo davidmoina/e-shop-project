@@ -1,0 +1,17 @@
+@use '../../styles/abstracts/variables' as var;
+
+.countContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1em 0;
+
+  button {
+    width: 3rem;
+    height: 3rem;
+    background-color: var.$gray-200;
+    border-radius: 4px;
+    border: 2px solid var.$gray-400;
+    cursor: pointer;
+  }
+}

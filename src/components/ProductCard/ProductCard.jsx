@@ -8,6 +8,11 @@ const ProductCard = ({prod}) => {
 
     const {onAdd} =  useContext(CartContext);
 
+    const addProduct = () => {
+        const newProduct = {...prod, quantity: 1};
+        onAdd(newProduct);
+    }
+
     const navigate = useNavigate();
 
     const {image, title, price} = prod;
@@ -23,7 +28,7 @@ const ProductCard = ({prod}) => {
                 <h5>{title}</h5>
                 <div className={styles.cardFooter}>
                     <p>{price.toFixed(2)}€</p>
-                    <button onClick={() => onAdd(prod)}><ShoppingBasketIcon/></button>
+                    <button onClick={addProduct}><ShoppingBasketIcon/></button>
                 </div>
             </div>
         </div>  

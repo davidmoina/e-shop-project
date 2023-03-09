@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useFetch } from '../../Api/useFetch';
 import ProductCard from '../ProductCard/ProductCard'
 import styles from './productsList.module.scss'
 
@@ -7,22 +7,11 @@ const ProductsList = () => {
 
   const url = "https://fakestoreapi.com/products";
 
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    const response = await fetch(url);
-    const result = await response.json()
-
-    setProducts(result);
-  }
-  
-  useEffect(() => {
-    getProducts();
-  },[])
+  const { data, loading } = useFetch(url)
 
   return (
     <div className={styles.productsList}>
-        {products.map(prod => {
+        {data?.map(prod => {
           return <ProductCard prod={prod} key={prod.id}/>
         })}
     </div>

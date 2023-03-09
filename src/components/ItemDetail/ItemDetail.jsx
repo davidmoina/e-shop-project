@@ -1,19 +1,32 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './itemDetail.module.scss';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import CircleIcon from '@mui/icons-material/Circle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../context/CartContext/CartContext';
 
 const ItemDetail = ({prodDetail}) => {
 
   const [favorite, setFavorite] = useState(false);
+  const [quantity, setQuantity] = useState(1)
 
   const {image, title, price, description, category} = prodDetail;
+  const {onAdd} = useContext(CartContext);
 
   const handleFavorite = () => {
     setFavorite(!favorite)
+  }
+
+  const handleQuantity = (qty) => {
+    setQuantity(qty)
+  } 
+
+  const handleFinish = () => {
+    const newProduct = {...prodDetail, quantity: quantity}
+    onAdd(newProduct);
   }
 
   return (
@@ -41,10 +54,11 @@ const ItemDetail = ({prodDetail}) => {
           <CircleIcon color='secondary' fontSize='inherit'/>
           <CircleIcon color='disabled' fontSize='inherit'/>
         </div>
+        <ItemCount handleQuantity={handleQuantity} />
         <div className={styles.btnContainer}>
-          <button className={styles.btnAddCart}>Add to cart</button>
+          <button className={styles.btnAddCart} onClick={handleFinish}>Add to cart</button>
           <span onClick={() => handleFavorite()}>
-            {favorite ? <FavoriteIcon fontSize='large'/> : <FavoriteBorderIcon fontSize='large'/>}
+            {favorite ? <FavoriteIcon fontSize='inherit'/> : <FavoriteBorderIcon fontSize='inherit'/>}
           </span>
         </div>
       </div>

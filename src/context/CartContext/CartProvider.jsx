@@ -11,13 +11,12 @@ const CartProvider = ({children}) => {
     }, [productsCart])
 
     const onAdd = (prod) => {
-        prod.quantity = 1;
         const inCart = productsCart.find(item => item.id === prod.id);
 
         if(inCart) {
             const newProduct  = productsCart.map(item => 
                 item.id === prod.id 
-                ? {...item, quantity: item.quantity + 1} 
+                ? {...item, quantity: item.quantity + prod.quantity} 
                 : item);
             return setProductsCart([...newProduct]);
         }
