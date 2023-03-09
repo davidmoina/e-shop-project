@@ -1,0 +1,10 @@
+@use '../../styles/abstracts/variables' as var;
+
+.link {
+  color: var.$dark-color;
+  text-decoration: none;
+}
+
+.active {
+  color: var.$primary-color;
+}

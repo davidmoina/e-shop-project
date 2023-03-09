@@ -1,3 +1,5 @@
+@use '../../styles/abstracts/variables' as var;
+
 .productContainer {
     display: grid;
     grid-template-columns: 20% 1fr;
@@ -13,5 +15,30 @@
 
     .asideContainer {
         grid-column: 1/2;
+
+        ul {
+            list-style: none;
+            font-size: 1.6rem;
+            padding: 1em 0;
+
+            li {
+                margin-bottom: 0.8em;
+                cursor: pointer;
+                font-weight: bold;
+
+                .link {
+                    color: var.$dark-color;
+                    text-decoration: none;
+                }
+
+                .active {
+                    color: var.$primary-color;
+                }
+
+                &:hover {
+                    color: var.$primary-color;
+                }
+            }
+        }
     }
 }

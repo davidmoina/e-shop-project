@@ -38,9 +38,8 @@ const CartPage = () => {
   return (
     <>
     <div className={styles.cartPageContainer}>
-      <h2>Cart Page</h2>
+      <h2>Shopping Cart</h2>
       <section className={styles.productsSection}>
-        <h4>Shopping Cart</h4>
         <div>
           {productsCart.length <= 0 && <p>The cart is empty please add items</p>}
           {productsCart.map(product => (
@@ -50,8 +49,8 @@ const CartPage = () => {
       </section>
 
       <aside className={styles.asideSection}>
-        <h4>Order summary</h4>
-        <div>
+        <div className={styles.priceDetails}>
+          <h4>Order summary</h4>
           <div>
             <p>Subtotal</p>
             <span>{price}€</span>
@@ -68,7 +67,7 @@ const CartPage = () => {
             <p>Order Total</p>
             <span>{finalPrice.total.toFixed(2)}€</span>
           </div>
-          <button>Checkout</button>
+          <button className={styles.btnCheckout}>Checkout</button>
         </div>
       </aside>
     </div>

@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export function useFetch(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { collection } = useParams();
 
   useEffect(() => {
 
@@ -13,7 +16,7 @@ export function useFetch(url) {
       .catch(error => setError(error))
       .finally(() => setLoading(false));
 
-  }, [])
+  }, [collection])
   
   return { data, loading, error };
 }

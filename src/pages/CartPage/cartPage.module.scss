@@ -1,5 +1,6 @@
+@use '../../styles/abstracts/variables' as var;
+
 .cartPageContainer {
-  background-color: aqua;
   max-width: 1165px;
   margin: 10rem auto 2em;
   display: grid;
@@ -7,17 +8,49 @@
 
   h2{
     grid-column: 1/3;
-    margin: 0;
   }
 
   .productsSection {
-    background-color: aquamarine;
     grid-column: 1/2;
+    padding: 1em;
   }
 
   .asideSection {
-    background-color: blueviolet;
     grid-column: 2/3;
+
+    
+
+    .priceDetails {
+      border: 2px solid var.$gray-300;
+      border-radius: 12px;
+      padding: 1em 1.5em;
+
+      h4 {
+        margin-top: 0.2em;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid var.$gray-300;
+      }
+
+      div:nth-of-type(4) {
+        border-bottom: none;
+        margin-bottom: 1em;
+      }
+
+      .btnCheckout {
+        width: 100%;
+        padding: 0.7em;
+        border-radius: 6px;
+        border: none;
+        background-color: var.$dark-color;
+        color: var.$white-color;
+        cursor: pointer;
+      }
+    }
   }
   
   

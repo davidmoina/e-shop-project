@@ -16,9 +16,9 @@ const CartItem = ({product}) => {
       <div className={styles.infoContainer}>
         <div className={styles.productDetailsCart}>
           <h4>{title}</h4>
-          <span>{price}€</span>
-          <span>{quantity}</span>
-          <span onClick={() => onDelete(product)} className={styles.closeSpan}><CloseIcon/></span>
+          <span className={styles.priceSpan}>{price}€</span>
+          <span className={styles.quantitySpan}>{quantity}</span>
+          <span onClick={() => onDelete(product)} className={styles.closeSpan}><CloseIcon fontSize='inherit'/></span>
         </div>
         <p className={styles.stockP}><span><CheckIcon/></span> In stock</p>
       </div>

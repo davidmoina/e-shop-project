@@ -6,6 +6,7 @@ import NotFound from '../pages/NotFound/NotFound'
 import CartPage from '../pages/CartPage/CartPage';
 import Header from '../containers/HeaderContainer/Header';
 import ProductDetailPage from '../pages/ProductDetailPage/ProductDetailPage';
+import ProductsList from '../components/ProductsList/ProductsList';
 
 const Routing = () => {
     return (
@@ -13,9 +14,12 @@ const Routing = () => {
         <Header/>
             <Routes>
                 <Route path="/" element={<Home/>} />
-                <Route path="/products" element={<Products/>} />
-                <Route path='/cart' element={<CartPage/>}/>
-                <Route path="/detail/:productId" element={<ProductDetailPage/>} />
+                <Route path="products" element={<Products/>}>
+                    <Route index element={<ProductsList/>} />
+                    <Route path=':collection' element={<ProductsList/>} />
+                </Route>
+                <Route path='cart' element={<CartPage/>}/>
+                <Route path="detail/:productId" element={<ProductDetailPage/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>
         </BrowserRouter>
