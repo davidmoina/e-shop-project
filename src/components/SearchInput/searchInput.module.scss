@@ -1,0 +1,76 @@
+@use '../../styles/abstracts/variables' as var;
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+}
+
+.input {
+  border-style: none;
+  height: 3rem;
+  width: 1rem;
+  padding: 1rem;
+  outline: none;
+  transition: .5s ease-in-out;
+  box-shadow: 0px 0px 3px #f3f3f3;
+  padding-right: 20px;
+  color: var.$gray-700;
+}
+
+.input::placeholder {
+  color: var.$gray-700
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  outline: none;
+  border-style: none;
+  pointer-events: painted;
+  background-color: transparent;
+  transition: .2s linear;
+  color: var.$gray-700;
+}
+.resultsDiv {
+  position: absolute;
+  width: 0;
+  top: 28px;
+  overflow: hidden;
+  background-color: var.$white-color;
+  border-radius: 6px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var.$gray-500;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid var.$gray-500;
+      padding: 0.5em 0.2em;
+    }
+  }
+}
+
+.iconFocus ~ .input {
+  box-shadow: none;
+  width: 250px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 3px solid var.$gray-700;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.iconFocus ~ .resultsDiv, .iconFocus ~ .resultsDiv {
+  width: 250px;
+}

@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CartItem from '../../components/CartItem/CartItem'
 import { CartContext } from '../../context/CartContext/CartContext'
 import styles from './cartPage.module.scss'
 
 const CartPage = () => {
+
+  const navigate = useNavigate()
 
   const values = {
     shippingPrice: 0,
@@ -33,7 +36,10 @@ const CartPage = () => {
 
     return setFinalPrice(values);
   }, [price])
-  
+
+  const handleGoToCheckout = () => {
+    navigate('/cart/checkout')
+  }  
   
   return (
     <>
@@ -67,7 +73,7 @@ const CartPage = () => {
             <p>Order Total</p>
             <span>{finalPrice.total.toFixed(2)}€</span>
           </div>
-          <button className={styles.btnCheckout}>Checkout</button>
+          <button onClick={handleGoToCheckout} className={styles.btnCheckout}>Checkout</button>
         </div>
       </aside>
     </div>

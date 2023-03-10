@@ -6,7 +6,7 @@ export function useFetch(url) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { collection } = useParams();
+  const { collection, productId } = useParams();
 
   useEffect(() => {
 
@@ -16,7 +16,7 @@ export function useFetch(url) {
       .catch(error => setError(error))
       .finally(() => setLoading(false));
 
-  }, [collection])
+  }, [collection, productId])
   
   return { data, loading, error };
 }
