@@ -3,13 +3,10 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import CartPopUp from '../CartPopUp/CartPopUp';
 import { CartContext } from '../../context/CartContext/CartContext';
 import styles from './cartWidget.module.scss'
-import { Link, NavLink } from 'react-router-dom';
 
 function CartWidget() {
     const [active, setActive] = useState(false);
-    const {count} = useContext(CartContext);
-
-    const totalItems = count();
+    const {countProducts} = useContext(CartContext);
 
     const hidePopUp = () => {
         setActive(false);
@@ -20,7 +17,7 @@ function CartWidget() {
         <div className={styles.widgetContainer}>
             <li onClick={() => setActive(!active)}>
                 <ShoppingBasketIcon style={{fontSize: 25}}/>
-                {totalItems > 0 && <span className={styles.totalSpan}>{totalItems}</span>}
+                {countProducts > 0 && <span className={styles.totalSpan}>{countProducts}</span>}
             </li>
             <CartPopUp active={active} hidePopUp={hidePopUp}/>
         </div>

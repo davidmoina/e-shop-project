@@ -4,21 +4,22 @@ import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
 import { CartContext } from '../../context/CartContext/CartContext';
 
-const CartItem = ({product}) => {
+const CartItem = ({product, checkout}) => {
 
   const {image, price, quantity, title} = product;
 
   const { onDelete } = useContext(CartContext);
 
   return (
-    <div className={styles.itemContainer}>
+    <div className={`${styles.itemContainer} ${checkout && styles.itemWhite}`}>
       <img src={image}  />
       <div className={styles.infoContainer}>
         <div className={styles.productDetailsCart}>
           <h4>{title}</h4>
           <span className={styles.priceSpan}>{price}€</span>
           <span className={styles.quantitySpan}>{quantity}</span>
-          <span onClick={() => onDelete(product)} className={styles.closeSpan}><CloseIcon fontSize='inherit'/></span>
+          {!checkout && 
+          <span onClick={() => onDelete(product)} className={styles.closeSpan}><CloseIcon fontSize='inherit'/></span>}
         </div>
         <p className={styles.stockP}><span><CheckIcon/></span> In stock</p>
       </div>

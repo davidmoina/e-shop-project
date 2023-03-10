@@ -1,0 +1,112 @@
+@use '../../styles/abstracts/variables' as var;
+
+.checkoutPageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1440px;
+  height: 100vh;
+  margin: 0 auto;
+
+  .formContainer {
+    grid-column: 1/2;
+    background-color: var.$white-color;
+    padding-top: 5em;
+
+    .form {
+      max-width: 564px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      align-items: center;
+      gap: 1em;
+      margin: 0 auto;
+
+      h3 {
+        grid-column: 1/7;
+        margin: 0.5em 0;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        grid-column: span 3;
+      }
+
+      .largeItem {
+        grid-column: 1/7;
+      }
+
+      .littleDiv {
+        grid-column: span 2;
+      }
+      .checkBox {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  .orderContainer {
+    grid-column: 2/3;
+    background-color: var.$dark-color;
+
+    .productsContainer {
+      max-height: 70vh;
+      max-width: 564px;
+      margin: 5em auto 0;
+      overflow-y: auto;
+      
+      /* styles for Webkit y blink (Chrome, Safari, Opera... )*/
+      
+      &::-webkit-scrollbar {
+          -webkit-appearance: none;
+      }
+      
+      &::-webkit-scrollbar:vertical {
+          width:8px;
+      }
+      
+      &::-webkit-scrollbar-button:increment, 
+      &::-webkit-scrollbar-button {
+          display: none;
+      } 
+      
+      &::-webkit-scrollbar:horizontal {
+          height: 10px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+          background-color: #797979;
+          border-radius: 20px;
+          border: 2px solid #f1f2f3;
+      }
+      
+      &::-webkit-scrollbar-track {
+          border-radius: 10px;  
+      }
+    }
+
+    .detailsContainer {
+      max-width: 564px;
+      margin: 0 auto;
+    }
+
+    .detailsContainer {
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var.$gray-400;
+        height: 40px;
+      }
+
+      .total {
+        color: var.$white-color;
+        font-weight: bold;
+        border-top: 2px solid var.$gray-300;
+        font-size: 1.8rem;
+        height: 50px;
+      }
+    }
+
+  }
+}
