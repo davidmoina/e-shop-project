@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import CartItem from '../../components/CartItem/CartItem';
+import CheckoutForm from '../../components/CheckoutForm/CheckoutForm';
 import { CartContext } from '../../context/CartContext/CartContext'
 import styles from './checkoutPage.module.scss'
 
@@ -10,45 +11,9 @@ const CheckoutPage = () => {
   return (
     <div className={styles.checkoutPageContainer}>
       <div className={styles.formContainer}>
-        <form action="" className={styles.form}>
-          <h3 className={styles.largeItem}>Contact information</h3>
-          <div>
-            <label htmlFor="">Name</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">Last Name</label>
-            <input type="text" />
-          </div>
-          <div className={styles.largeItem}>
-            <label htmlFor="">Email</label>
-            <input type="text" />
-          </div>
-          <h3 className={styles.largeItem}>Payment details</h3>
-          <div className={styles.largeItem}>
-            <label htmlFor="">Address</label>
-            <input type="text" />
-          </div>
-          <div className={styles.littleDiv}>
-            <label htmlFor="">City</label>
-            <input type="text" />
-          </div>
-          <div className={styles.littleDiv}>
-            <label htmlFor="">Last Name</label>
-            <input type="text" />
-          </div>
-          <div className={styles.littleDiv}>
-            <label htmlFor="">Last Name</label>
-            <input type="text" />
-          </div>
-          <div className={styles.checkBox}>
-            <label htmlFor="">
-              <input type="checkbox" name="" id="" />
-              I agree the Terms and Conditions.
-            </label>
-          </div>
-        </form>
+        <CheckoutForm/>
       </div>
+      
       <div className={styles.orderContainer}>
         <div className={styles.productsContainer}>
           {productsCart.map(product => (

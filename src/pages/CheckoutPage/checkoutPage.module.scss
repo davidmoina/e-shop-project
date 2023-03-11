@@ -11,37 +11,6 @@
     grid-column: 1/2;
     background-color: var.$white-color;
     padding-top: 5em;
-
-    .form {
-      max-width: 564px;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      align-items: center;
-      gap: 1em;
-      margin: 0 auto;
-
-      h3 {
-        grid-column: 1/7;
-        margin: 0.5em 0;
-      }
-
-      div {
-        display: flex;
-        flex-direction: column;
-        grid-column: span 3;
-      }
-
-      .largeItem {
-        grid-column: 1/7;
-      }
-
-      .littleDiv {
-        grid-column: span 2;
-      }
-      .checkBox {
-        grid-column: 1 / 7;
-      }
-    }
   }
 
   .orderContainer {

@@ -1,0 +1,72 @@
+@use '../../styles/abstracts/variables' as var;
+
+.form {
+  max-width: 564px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 1em;
+  margin: 0 auto;
+
+  h3 {
+    grid-column: 1/7;
+    margin: 0.5em 0;
+    color: var.$secondary-color;
+  }
+
+  div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    grid-column: span 3;
+
+    input, select {
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid var.$gray-400;
+      margin-top: 0.5em;
+      padding: 0 0.3em;
+
+      &::placeholder {
+        font-size: 1.4rem;
+      }
+    }
+
+    .errorMsg {
+      margin: 0;
+      position: absolute;
+      bottom: -15px;
+      left: 5px;
+      font-size: 1.2rem;
+      color: var.$danger-color;
+    }
+  }
+
+  .largeItem {
+    grid-column: 1/7;
+  }
+
+  .littleDiv {
+    grid-column: span 2;
+  }
+  .checkBoxDiv {
+    grid-column: 1 / 7;
+
+    .checkBox {
+      height: inherit;
+      margin: 0 5px 0 0;
+    }
+  }
+
+  .btnCheckout {
+    grid-column: 5/7;
+    width: 180px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background-color: var.$primary-color;
+    color: var.$white-color;
+    margin: 1em 0;
+    cursor: pointer;
+  }
+}
