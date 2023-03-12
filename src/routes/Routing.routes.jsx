@@ -8,10 +8,17 @@ import Header from '../containers/HeaderContainer/Header';
 import ProductDetailPage from '../pages/ProductDetailPage/ProductDetailPage';
 import ProductsList from '../components/ProductsList/ProductsList';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Login from '../pages/Login/Login';
+import SignUp from '../pages/SignUp/SignUp';
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
+
 
 const Routing = () => {
     return (
         <BrowserRouter>
+            <ToastContainer/>
             <Routes>
                 <Route path='/' element={<Header/>}>
                     <Route index element={<Home/>} />
@@ -22,8 +29,12 @@ const Routing = () => {
                     <Route path='cart' element={<CartPage/>}/>
                     <Route path='detail/:productId' element={<ProductDetailPage/>} />
                 </Route>
-                <Route path='cart/checkout' element={<CheckoutPage/>} />
+                <Route element={<ProtectedRoute/>}>
+                    <Route path='cart/checkout' element={<CheckoutPage/>} />
+                </Route>
                 <Route path='*' element={<NotFound/>} />
+                <Route path='/login' element={<Login/>} />
+                <Route path='/signup' element={<SignUp/>} />
             </Routes>
         </BrowserRouter>
     )

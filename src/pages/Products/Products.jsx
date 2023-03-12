@@ -1,16 +1,9 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { useFetch } from '../../Api/useFetch'
-import CollectionItem from '../../components/CollectionItem/CollectionItem'
 import ProductsContainer from '../../containers/ProductsContainer/ProductsContainer'
 import styles from './productPage.module.scss'
 
 function Products() {
-
-    const url = "https://fakestoreapi.com/products/categories";
-
-    const {data, loading} = useFetch(url);
-
     return (
         <>
         <main className={styles.productContainer}>
@@ -22,10 +15,19 @@ function Products() {
                 <ul>
                     <li>
                         <NavLink className={({isActive}) => isActive ? `${styles.active} ${styles.link}` : `${styles.link}`} to="./">ALL</NavLink>
-                        </li>
-                    {data?.map(item =>( 
-                        <CollectionItem key={item} item={item}/>
-                    ))}
+                    </li>
+                    <li>
+                        <NavLink className={({isActive}) => isActive ? `${styles.active} ${styles.link}` : `${styles.link}`} to="men's clothing">MEN'S CLOTHING</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({isActive}) => isActive ? `${styles.active} ${styles.link}` : `${styles.link}`} to="women's clothing">WOMEN'S CLOTHING</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({isActive}) => isActive ? `${styles.active} ${styles.link}` : `${styles.link}`} to="electronics">ELECTRONICS</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({isActive}) => isActive ? `${styles.active} ${styles.link}` : `${styles.link}`} to="jewelery">JEWELER'S</NavLink>
+                    </li>
                 </ul>
             </aside>
             <ProductsContainer>

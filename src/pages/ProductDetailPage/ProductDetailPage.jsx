@@ -2,14 +2,13 @@ import { useParams } from 'react-router-dom';
 import { useFetch } from '../../Api/useFetch';
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import SkeletonLoader from '../../components/SkeletonLoader/SkeletonLoader';
+import useFirebase from '../../hooks/useFirebase';
 
 const ProductDetailPage = () => {
 
   const {productId} = useParams();
 
-  const url = "https://fakestoreapi.com/products/";
-
-  const { data, loading } = useFetch(url + productId);
+  const { data, loading} = useFirebase(null, productId);
 
   return (
     loading ? <SkeletonLoader/> : <ItemDetail prodDetail={data} productId={productId}/>

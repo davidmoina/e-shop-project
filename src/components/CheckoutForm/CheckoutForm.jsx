@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import styles from './checkoutForm.module.scss'
 
 const CheckoutForm = () => {  
@@ -6,6 +7,7 @@ const CheckoutForm = () => {
 
   const onSubmit  = async ( data) => {
     console.log(data)
+    toast.success('🦄 Wow so easy!')
   }
   
   return (

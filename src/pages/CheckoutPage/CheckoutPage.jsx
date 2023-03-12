@@ -9,6 +9,7 @@ const CheckoutPage = () => {
   const { productsCart, subtotal, tax, shipping, total } = useContext(CartContext);
 
   return (
+    <>
     <div className={styles.checkoutPageContainer}>
       <div className={styles.formContainer}>
         <CheckoutForm/>
@@ -40,6 +41,8 @@ const CheckoutPage = () => {
         </div>
       </div>
     </div>
+    </>
+    
   )
 }
 
