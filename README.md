@@ -1,7 +1,10 @@
 `#react`  `#sass`  `#js`  `#master-in-software-development`
 
 # ESHOP
+
 ![eshop gif](./src/assets/images/eshopwebgif.gif)
+
+
 _Eshop is a SPA created with React. It is an online store that has many of the basic functions for this type of web pages and in the future will be adding and modifying things._
 
 
