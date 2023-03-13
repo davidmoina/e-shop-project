@@ -4,10 +4,10 @@ import SignInButton from "../SignInButton/SignInButton";
 import styles from  './navright.module.scss';
 import CartWidget from "../CartWidget/CartWidget";
 import SearchInput from "../SearchInput/SearchInput";
-import { useFetch } from "../../Api/useFetch";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import useFirebase from "../../hooks/useFirebase";
 
 const NavRight = () => {
 
@@ -19,7 +19,7 @@ const NavRight = () => {
 
 	const { actualUser, logout } = useContext(AuthContext);
 
-	const { data } = useFetch("https://fakestoreapi.com/products");
+	const { data } = useFirebase();
 
 	const handleLogout = async () => {
 		try {

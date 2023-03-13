@@ -24,9 +24,9 @@ const AuthProvider = ({children}) => {
     return () => unsubscribe();
   }, [])
   
-  const createUser = (email, password, name) => {
+  const createUser = async (email, password, name) => {
     setLoading(true)
-    createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, password)
     .then(() => (
     updateProfile(auth.currentUser, {
         displayName: name

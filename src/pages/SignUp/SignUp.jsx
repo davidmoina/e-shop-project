@@ -19,14 +19,17 @@ const SignUp = () => {
     navigate('/login')
   }
 
-  const onSubmit  = async ({email, password, name}) => {
-    try {
-      await createUser(email, password, name);
-      navigate("/")
-    } catch (error) {
-      console.log(error);
-    }
+  const onSubmit  =  ({email, password, name}) => {
 
+    createUser(email, password, name)
+    .then(() => {
+      toast.success("Sign up successfully", { position: "top-center", autoClose: 3000})
+      navigate("/")
+    })
+    .catch(error => {
+      console.log(error.message)
+      toast.warning("An error has ocurred, please try again", { position: "top-center"})
+    })
     
   }
 

@@ -1,3 +1,5 @@
+@use '../../styles/abstracts/variables' as var;
+
 .loader {
   width: 80px;
   height: 50px;
@@ -11,14 +13,14 @@
   top: 0;
   padding: 0;
   margin: 0;
-  color: #C8B6FF;
+  color: var.$primary-color;
   animation: text_713 3.5s ease both infinite;
   font-size: 2rem;
   letter-spacing: 1px;
 }
 
 .load {
-  background-color: #9A79FF;
+  background-color: var.$dark-color;
   border-radius: 50px;
   display: block;
   height: 16px;
@@ -34,7 +36,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background-color: #D1C2FF;
+  background-color: var.$primary-color;
   border-radius: inherit;
   animation: loading2_713 3.5s ease both infinite;
 }
