@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useFetch } from '../../Api/useFetch';
 import useFirebase from '../../hooks/useFirebase';
 import CustomLoader from '../CustomLoader/CustomLoader';
 import ProductCard from '../ProductCard/ProductCard'
@@ -14,12 +12,18 @@ const ProductsList = () => {
   const { data } = useFirebase(collection);
 
   return (
+    <>
+    {!data 
+    ? <CustomLoader/> 
+    : 
     <div className={styles.productsList}>
-      {!data && <CustomLoader/>}
       {data?.map(prod => {
         return <ProductCard prod={prod} key={prod.id}/>
       })}
     </div>
+    }
+    
+    </>
   )
 }
 

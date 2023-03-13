@@ -1,0 +1,29 @@
+@use '../../styles/abstracts/variables' as var;
+
+.orderProducts {
+  display: flex;
+  // gap: 1em;
+  border-radius: 6px;
+  border: 1px solid var.$gray-300;
+  padding: 1em;
+  justify-content: space-between;
+
+  img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+  }
+  div {
+    width: 86%;
+  }
+
+  span:first-child {
+    padding-right: 0.5em;
+  }
+
+  span:last-child {
+    display: inline-block;
+    padding-left: 0.5em;
+    border-left: 1px solid var.$secondary-color;
+  }
+}

@@ -1,0 +1,116 @@
+@use '../../styles/abstracts/variables' as var;
+
+.orderDetailContainer {
+  width: 100%;
+  height: fit-content;
+  max-width: 1167px;
+  margin: 5em auto 3em;
+
+  .ordersNumContainer {
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      color: var.$secondary-color;
+
+      &:nth-child(4) {
+        display: block;
+        margin-top: 3em;
+      }
+
+      &:nth-child(5) {
+        color: var.$gray-900;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .orderContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    gap: 1em;
+
+    & > div {
+
+      span, p {
+        color: var.$secondary-color;
+      }
+    }
+
+    .products {
+      grid-column: 1/4;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .addressContainer {
+      grid-column: 1 / 3;
+      grid-row: -2 / -3;
+      display: flex;
+      gap: 2em;
+      border-radius: 6px;
+      border: 1px solid var.$gray-300;
+      padding: 1em;
+
+      & > div {
+        width: 50%;
+      }
+    }
+
+    .paymentContainer {
+      grid-column: 1/ 3;
+      grid-row: -1 / -2;
+      display: flex;
+      gap: 1em;
+      border-radius: 6px;
+      border: 1px solid var.$gray-300;
+      padding: 1em;
+
+      & > div {
+        width: 50%;
+      }
+
+      .cardData {
+        display: grid;
+        grid-template-columns: 15% 850%;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+        
+
+        .cardIcon {
+          grid-row: 1 / 3;
+          font-size: 4rem;
+        }
+
+      }
+    }
+
+    .pricingContainer {
+      grid-column: 3 / 4;
+      grid-row: 2 / 4;
+      border-radius: 6px;
+      border: 1px solid var.$gray-300;
+      padding: 1em;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        padding: .8em 0;
+        color: var.$secondary-color;
+
+        &:last-child {
+          border-top: 1px solid black;
+          span {
+            color: var.$gray-900;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

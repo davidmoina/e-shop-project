@@ -1,5 +1,10 @@
 @use '../../styles/abstracts/variables' as var;
 
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .loader {
   width: 80px;
   height: 50px;

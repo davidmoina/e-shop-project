@@ -68,7 +68,7 @@ const CartProvider = ({ children }) => {
   };
 
   const taxes = () => {
-    const result = (subtotal + shipping) * 0.21;
+    const result = (subtotal + shipping) * 0.1;
     return parseFloat(result.toFixed(2));
   };
 

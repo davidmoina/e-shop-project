@@ -7,15 +7,26 @@ import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { CartContext } from '../../context/CartContext/CartContext';
 import { db } from '../../Firebase/config';
 import { generateOrder } from '../../services/generateOrder';
+import { getRandomInt } from '../../services/generateRandomNumber';
 import styles from './checkoutForm.module.scss'
 
 const CheckoutForm = () => {  
-  const { setValue,register, formState: {errors}, handleSubmit, watch} = useForm();
+  const { register, formState: {errors}, handleSubmit, watch} = useForm();
 
-  const { productsCart, total, clearCart } = useContext(CartContext);
+  const { productsCart, total, clearCart, subtotal, shipping, tax } = useContext(CartContext);
   const { actualUser } = useContext(AuthContext);
 
+  const pricing = {
+    total,
+    subtotal,
+    shipping,
+    tax
+  }
+
   const navigate = useNavigate();
+
+  const orderNum = getRandomInt();
+  const trackingNum = getRandomInt();
 
   const onSubmit  = async ({name, lastName, email, country, address, postcode, city, terms}) => {
     const idToast = toast.loading("please wait...");
@@ -29,13 +40,16 @@ const CheckoutForm = () => {
       postcode,
       city,
       terms,
+      actualUser.uid,
+      orderNum,
+      trackingNum,
       productsCart,
-      total
+      pricing
     );
 
     try {
       // Add a new document with a generated id.
-      await addDoc(collection(db, "orders"), order);
+      const docRef = await addDoc(collection(db, "orders"), order);
 
       productsCart.forEach(async (productInCart) => {
         const productModified = doc(db, "products", productInCart.id);
@@ -45,14 +59,13 @@ const CheckoutForm = () => {
           stock: productSnap.data().stock - productInCart.quantity
         });
       });
-      toast.update(idToast, { render: "Order send successfully", type: "success", isLoading: false, autoClose: 5000, position: "top-center"});
       clearCart();
+      toast.update(idToast, { render: "Order send successfully", type: "success", isLoading: false, autoClose: 5000, position: "top-center"});
+      navigate(`/order_detail/${docRef.id}`);
     } catch (error) {
       toast.update(idToast, { render: "An error has ocurred", type: "error", isLoading: false, autoClose: 5000, position: "top-center"});
     }
 
-    navigate("/cart");
-    
   }
   
   return (

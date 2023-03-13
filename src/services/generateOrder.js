@@ -1,5 +1,5 @@
 
-export const generateOrder = (name, lastName, email, country, address, postcode, city, terms, cart, total) => {
+export const generateOrder = (name, lastName, email, country, address, postcode, city, terms, uid, orderNum, trackingNum, cart, prices) => {
   return {
     buyer: {
         name,
@@ -9,10 +9,13 @@ export const generateOrder = (name, lastName, email, country, address, postcode,
         address,
         postcode,
         city,
-        terms
+        terms,
+        uid
     },
+    orderNum,
+    trackingNum,
     items: cart,
-    total,
+    pricing: prices,
     createDat: new Date().toLocaleString()
   }
 }

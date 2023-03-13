@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.copyRight}>
-        Design by Astro Ecommerce and developed by David Moina.
+        Design inspired in Astro Ecommerce and developed by David Moina.
       </div>
     </footer>
   )

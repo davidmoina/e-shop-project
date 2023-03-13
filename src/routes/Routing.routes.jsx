@@ -14,6 +14,7 @@ import Login from '../pages/Login/Login';
 import SignUp from '../pages/SignUp/SignUp';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import Footer from '../components/Footer/Footer';
+import OrderDetailPage from '../pages/OrderDetailPage/OrderDetailPage';
 
 
 const Routing = () => {
@@ -29,6 +30,7 @@ const Routing = () => {
                     </Route>
                     <Route path='cart' element={<CartPage/>}/>
                     <Route path='detail/:productId' element={<ProductDetailPage/>} />
+                    <Route path='order_detail/:orderId' element={<OrderDetailPage/>} />
                 </Route>
                 <Route element={<ProtectedRoute/>}>
                     <Route path='cart/checkout' element={<CheckoutPage/>} />
