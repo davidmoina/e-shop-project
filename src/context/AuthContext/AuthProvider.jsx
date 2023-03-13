@@ -1,22 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AuthContext } from './AuthContext'
 import { 
-  getAuth, 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
   signOut,
-  updateCurrentUser,
   updateProfile,
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup
 } from "firebase/auth";
-import { auth, db } from '../../Firebase/config';
-import { getDoc } from 'firebase/firestore';
+import { auth } from '../../Firebase/config';
+import { toast } from 'react-toastify';
 
 const AuthProvider = ({children}) => {
   const [actualUser, setActualUser] = useState(null);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUSer) => {
@@ -40,10 +38,11 @@ const AuthProvider = ({children}) => {
   const logout = () => {
     setActualUser(null)
     signOut(auth)
+    toast.info("Logged out", { position: "top-center"})
   }
 
-  const login = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+  const login = async (email, password) => {
+    await signInWithEmailAndPassword(auth, email, password)
   }
 
   const loginWithGoogle = () => {

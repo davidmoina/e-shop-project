@@ -1,0 +1,41 @@
+@use '../../styles/abstracts/variables' as var;
+
+.footer {
+  background-color: #0f172a;
+  overflow: hidden;
+
+  .container {
+    display: flex;
+    max-width: 1167px;
+    justify-content: space-between;
+    margin: 0 auto;
+    color: var.$white-color;
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      h2 {
+        font-size: 4rem;
+      }
+    }
+
+    .listsSection {
+      display: flex;
+
+      ul {
+        list-style: none;
+
+        li{
+          margin-bottom: 6px;
+        }
+      }
+    }
+  }
+
+  .copyRight {
+    color: var.$gray-500;
+    text-align: center;
+    margin: 1em auto;
+  }
+}

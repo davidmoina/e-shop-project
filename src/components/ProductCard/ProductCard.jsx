@@ -3,6 +3,7 @@ import styles from './card.module.scss'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { CartContext } from '../../context/CartContext/CartContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ProductCard = ({prod}) => {
 
@@ -11,6 +12,7 @@ const ProductCard = ({prod}) => {
     const addProduct = () => {
         const newProduct = {...prod, quantity: 1};
         onAdd(newProduct);
+        toast.success("Added to cart", { autoClose: 2000})
     }
 
     const navigate = useNavigate();

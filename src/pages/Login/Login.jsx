@@ -1,53 +1,44 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { auth } from '../../Firebase/config'
 import styles from './login.module.scss'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockIcon from '@mui/icons-material/Lock';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import BtnLoginGoogle from '../../components/BtnLoginGoogle/BtnLoginGoogle';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-
+  
+  const { login, actualUser } = useContext(AuthContext);
   const {register, formState: {errors}, handleSubmit, watch} = useForm();
   const navigate = useNavigate();
 
-  const { login } = useContext(AuthContext);
+  if(actualUser) {
+    return <Navigate to={-1}/>
+  }
 
-  // const handleOnClick = async() => {
-  //   const googleProvider = new GoogleAuthProvider();
-  //   await singInWithGoogle(googleProvider);
-
-  //   async function singInWithGoogle (provider) {
-  //     try {
-  //       const res = await signInWithPopup(auth, provider)
-  //       console.log(res);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  // }
-
-  const onSubmit  = async ({email, password}) => {
-    try {
-      await login(email, password)
-
-    } catch (error) {
-      console.log(error)
-    }
-
-    navigate("/")
+  const onSubmit = ({email, password}) => {
+    
+    login(email, password)
+    .then(() => {
+      navigate("/")
+      toast.success("Logged successfully", { position: "top-center", autoClose: 3000})
+    })
+    .catch(() => {
+      toast.warning("An error has ocurred, please try again", { position: "top-center"})
+    });
   }
 
   const handleSingUp = () => {
     navigate('/signup')
   }
 
+  
+
   return (
     <div className={styles.supContainer}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
-        {/* <div className={styles.logoContainer}></div> */}
         <div className={styles.titleContainer}>
           <p className={styles.title}>Log in to your Account</p>
           <span className={styles.subtitle}>Get started with our app, just create an account and enjoy the experience.</span>
@@ -75,7 +66,7 @@ const Login = () => {
         </div>
         <BtnLoginGoogle/>
         
-        <p onClick={handleSingUp} className={styles.note}>Not have an account? <strong>Sign up</strong></p>
+        <p onClick={handleSingUp} className={styles.note}>Don't have an account? <strong>Sign up</strong></p>
       </form>
     </div>
     

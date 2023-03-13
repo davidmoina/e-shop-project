@@ -2,6 +2,7 @@
 
 .cartPageContainer {
   max-width: 1165px;
+  width: 100%;
   margin: 10rem auto 2em;
   display: grid;
   grid-template-columns: 70% 1fr;
@@ -13,11 +14,26 @@
   .productsSection {
     grid-column: 1/2;
     padding: 1em;
+
+    .emptyContainer {
+      
+      margin: 0 auto;
+
+      .btnContinueShopping {
+        width: fit-content;
+        padding: 0.7em;
+        border-radius: 6px;
+        border: none;
+        background-color: var.$dark-color;
+        color: var.$white-color;
+        cursor: pointer;
+      }
+    }
   }
 
   .asideSection {
     grid-column: 2/3;
-
+    text-align: center;
     
 
     .priceDetails {
@@ -39,6 +55,11 @@
       div:nth-of-type(4) {
         border-bottom: none;
         margin-bottom: 1em;
+      }
+      
+      .info {
+        font-size: 1.4rem;
+        color: var.$gray-700;
       }
 
       .btnCheckout {

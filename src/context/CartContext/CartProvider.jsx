@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { CartContext } from "./CartContext";
 
 const CartProvider = ({ children }) => {
@@ -72,6 +73,7 @@ const CartProvider = ({ children }) => {
   };
 
   const onDelete = (prod) => {
+    toast.info("Product deleted from cart")
     const results = productsCart.filter((item) => item.id !== prod.id);
     setProductsCart(results);
   };

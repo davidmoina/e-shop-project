@@ -7,9 +7,8 @@ const NavLeft = () => {
         <nav className={styles.navLeft}>
             <h4>ESHOP</h4>
             <ul className={`navList ${styles.divList}`}>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Products</Link></li>
-                <li>About us</li>
+                <li><Link className={styles.link} to="/">Home</Link></li>
+                <li><Link className={styles.link} to="/products">Products</Link></li>
             </ul>
         </nav>
         );

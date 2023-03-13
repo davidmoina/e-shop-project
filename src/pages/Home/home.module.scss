@@ -10,7 +10,7 @@
     color: #FFFFFF;
     width: 70%;
     max-width: 820px;
-    margin: 10em auto 0;
+    margin: 14em auto 0;
     text-align: center;
     
     .btnExplore {
@@ -22,5 +22,53 @@
       background-color: rgba(255, 255, 255, 0.3);
       cursor: pointer;
     }
+  }
+}
+
+.shopCategory {
+  width: 100%;
+  max-width: 1165px;
+  margin: 1em auto;
+  padding: 1em;
+}
+
+.sectionsDiv {
+  display: flex;
+  justify-content: space-between;
+
+  .section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 243px;
+    height: 363px;
+    border: 1px solid black;
+    border-radius: 12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .mens {
+    background-image: url(https://images.unsplash.com/photo-1611312449412-6cefac5dc3e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=692&q=80);
+  }
+
+  .women {
+    background-image: url(https://images.unsplash.com/photo-1603400521630-9f2de124b33b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80);
+  }
+
+  .electronics {
+    background-image: url(https://images.unsplash.com/photo-1615360509352-92a352aa73f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80);
+  }
+
+  .jewelry {
+    background-image: url(https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
   }
 }

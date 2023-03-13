@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
-import SignUpButton from "../SignUpButton/SignUpButton";
 import SignInButton from "../SignInButton/SignInButton";
 import styles from  './navright.module.scss';
 import CartWidget from "../CartWidget/CartWidget";
@@ -45,13 +44,17 @@ const NavRight = () => {
 			{actualUser?.displayName
 			? (
 				<>
-				<span>{actualUser?.displayName} <AccountCircleIcon/></span>
-				<button onClick={handleLogout}>Logout</button>
+				<p className={styles.userName}>{actualUser?.displayName} </p>
+				{actualUser?.photoURL 
+				? <img src={actualUser.photoURL} alt="" /> 
+				: <span className={styles.userImage}><AccountCircleIcon className={styles.userImage} fontSize="inherit"/></span>}
+				
+				
+				<button className={styles.btnLogout} onClick={handleLogout}>Logout</button>
 				</>
 				)
 			:(
 				<>
-				{/* <SignUpButton/> */}
 				<SignInButton handleGoSignInPage={handleGoSignInPage}/>
 				</>
 			)}

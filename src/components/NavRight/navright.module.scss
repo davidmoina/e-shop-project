@@ -15,13 +15,37 @@
 
     .divButton {
         display: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+        }
+
+        span {
+            width: 30px;
+            height: 30px;
+
+            .userImage {
+                font-size: 1.8em;
+            }
+        }
+
+        .btnLogout{
+            width: 82px;
+            height: 30px;
+            color: var.$white-color;
+            background-color: #474A57;
+            border: 2px solid #AFAFAF;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
         @media (min-width: 700px) {
             display: inherit;
-        }
-
-        button {
-            margin-left: 5px;
         }
     }
 }

@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from '../../context/CartContext/CartContext';
+import { toast } from 'react-toastify';
 
 const ItemDetail = ({prodDetail}) => {
 
@@ -27,6 +28,7 @@ const ItemDetail = ({prodDetail}) => {
   const handleFinish = () => {
     const newProduct = {...prodDetail, quantity: quantity}
     onAdd(newProduct);
+    toast.success("Added to cart", { autoClose: 2000})
   }
 
   return (

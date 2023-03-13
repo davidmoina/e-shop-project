@@ -1,13 +1,58 @@
+import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../../context/AuthContext/AuthContext';
+import { CartContext } from '../../context/CartContext/CartContext';
+import { db } from '../../Firebase/config';
+import { generateOrder } from '../../services/generateOrder';
 import styles from './checkoutForm.module.scss'
 
 const CheckoutForm = () => {  
-  const {register, formState: {errors}, handleSubmit, watch} = useForm();
+  const { setValue,register, formState: {errors}, handleSubmit, watch} = useForm();
 
-  const onSubmit  = async ( data) => {
-    console.log(data)
-    toast.success('🦄 Wow so easy!')
+  const { productsCart, total, clearCart } = useContext(CartContext);
+  const { actualUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const onSubmit  = async ({name, lastName, email, country, address, postcode, city, terms}) => {
+    const idToast = toast.loading("please wait...");
+
+    const order = generateOrder(
+      name,
+      lastName,
+      email,
+      country,
+      address,
+      postcode,
+      city,
+      terms,
+      productsCart,
+      total
+    );
+
+    try {
+      // Add a new document with a generated id.
+      await addDoc(collection(db, "orders"), order);
+
+      productsCart.forEach(async (productInCart) => {
+        const productModified = doc(db, "products", productInCart.id);
+        const productSnap = await getDoc(productModified);
+        
+        await updateDoc(productModified, {
+          stock: productSnap.data().stock - productInCart.quantity
+        });
+      });
+      toast.update(idToast, { render: "Order send successfully", type: "success", isLoading: false, autoClose: 5000, position: "top-center"});
+      clearCart();
+    } catch (error) {
+      toast.update(idToast, { render: "An error has ocurred", type: "error", isLoading: false, autoClose: 5000, position: "top-center"});
+    }
+
+    navigate("/cart");
+    
   }
   
   return (
@@ -15,7 +60,7 @@ const CheckoutForm = () => {
           <h3 className={styles.largeItem}>Contact information</h3>
           <div>
             <label>Name</label>
-            <input type="text" {...register("name", {required: true})} placeholder='Enter your name'/>
+            <input type="text" {...register("name", {required: true, value: actualUser.displayName})} placeholder='Enter your name'/>
             {errors.name?.type === "required" && <p className={styles.errorMsg}>This field is required.</p>}
           </div>
 
@@ -27,7 +72,7 @@ const CheckoutForm = () => {
 
           <div className={styles.largeItem}>
             <label htmlFor="email">Email</label>
-            <input type="email" {...register("email", {required: true, pattern: /\S+@\S+\.\S+/ })} placeholder='Enter your email'/>
+            <input type="email" {...register("email", {required: true, value: actualUser.email, pattern: /\S+@\S+\.\S+/ })} placeholder='Enter your email'/>
             {errors.email?.type === "pattern" && <p className={styles.errorMsg}>Email is wrong</p>}
           </div>
 
@@ -55,7 +100,7 @@ const CheckoutForm = () => {
           </div>
 
           <div className={styles.littleDiv}>
-            <label htmlFor="postCode">Postal code</label>
+            <label htmlFor="postcode">Postal code</label>
             <input type="number" {...register("postcode", {required: true})} placeholder='Enter your postal code'/>
             {errors.postcode?.type === "required" && <p className={styles.errorMsg}>This field is required.</p>}
           </div>

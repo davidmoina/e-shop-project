@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Navigate, Outlet } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext/AuthContext"
 
-const ProtectedRoute = ({children}) => {
+const ProtectedRoute = () => {
 
   const { actualUser } = useContext(AuthContext);
 

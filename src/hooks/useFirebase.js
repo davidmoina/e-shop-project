@@ -5,7 +5,7 @@ import { db } from '../Firebase/config';
 const useFirebase = (category, productId) => {
 
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {

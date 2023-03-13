@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Login from '../pages/Login/Login';
 import SignUp from '../pages/SignUp/SignUp';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
+import Footer from '../components/Footer/Footer';
 
 
 const Routing = () => {

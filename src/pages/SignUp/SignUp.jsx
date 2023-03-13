@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockIcon from '@mui/icons-material/Lock';
 import styles from './singUp.module.scss'
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
-import { onAuthStateChanged, updateProfile } from 'firebase/auth';
-import { auth } from '../../Firebase/config';
 import BtnLoginGoogle from '../../components/BtnLoginGoogle/BtnLoginGoogle';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
   const navigate = useNavigate();
   const {register, formState: {errors}, handleSubmit, watch} = useForm();
-  const {createUser} = useContext(AuthContext);
+  const {createUser, actualUser} = useContext(AuthContext);
 
   const handleLogin = () => {
     navigate('/login')
@@ -23,12 +22,16 @@ const SignUp = () => {
   const onSubmit  = async ({email, password, name}) => {
     try {
       await createUser(email, password, name);
-
+      navigate("/")
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
 
-    navigate("/")
+    
+  }
+
+  if(actualUser) {
+    return <Navigate to={-1}/>
   }
 
   return (
