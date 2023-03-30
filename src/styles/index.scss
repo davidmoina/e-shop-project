@@ -5,6 +5,10 @@
   font-family: var.$primary-font;
 }
 
+:root {
+  --toastify-toast-width: 300px;
+}
+
 html {
   font-size: 62.5%;
 }

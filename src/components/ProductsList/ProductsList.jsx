@@ -17,7 +17,7 @@ const ProductsList = () => {
     ? <CustomLoader/> 
     : 
     <div className={styles.productsList}>
-      {data.map((prod) => {
+      {data.map(prod => {
         return <ProductCard key={prod.id} prod={prod}/>
       })}
     </div>

@@ -1,12 +1,20 @@
 .containerCartProducts {
 	position: absolute;
-	top: 40px;
-	right: -180px;
+	top: 60px;
+	right: 0;
 	background-color: #fff;
 	width: 400px;
+	max-height: 0;
 	z-index: 1;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
+	overflow: hidden;
+	transition: max-height 0.5s ease-out;
+
+	@media (max-width: 500px) {
+		width: 300px;
+		right: 2px;
+	}
 	
 	.cartTotal {
 		display: flex;
@@ -65,5 +73,6 @@
 }
 
 .hiddenCart {
-	display: none;
+	max-height: 100vh;
+	transition: max-height 0.5s ease-in;
 }

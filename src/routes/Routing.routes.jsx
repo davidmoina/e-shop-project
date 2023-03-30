@@ -20,7 +20,7 @@ import OrderDetailPage from '../pages/OrderDetailPage/OrderDetailPage';
 const Routing = () => {
     return (
         <BrowserRouter>
-            <ToastContainer/>
+            <ToastContainer />
             <Routes>
                 <Route path='/' element={<Header/>}>
                     <Route index element={<Home/>} />

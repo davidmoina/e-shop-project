@@ -8,16 +8,17 @@ import { toast } from 'react-toastify';
 const ProductCard = ({prod}) => {
 
     const {onAdd} =  useContext(CartContext);
+    const {image, title, price, id} = prod;
 
     const addProduct = () => {
         const newProduct = {...prod, quantity: 1};
         onAdd(newProduct);
-        toast.success("Added to cart", { autoClose: 2000})
+        toast.success("Added to cart", { toastId: id, autoClose: 2000})
     }
 
     const navigate = useNavigate();
 
-    const {image, title, price} = prod;
+
 
     const handleNavigate = () => {
         navigate(`/detail/${prod.id}`)

@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import useFirebase from "../../hooks/useFirebase";
 
-const NavRight = () => {
+const NavRight = ({handleClickMenu}) => {
 
 	const navigate = useNavigate();
 
@@ -25,26 +25,23 @@ const NavRight = () => {
 		try {
 			await logout()
 			navigate("/")
-			console.log("logged out")
 		} catch (error) {
 			console.log(error.message);
 		}
 	}
 
-	console.log(actualUser)
-
 	return(
 	<nav className={styles.navRight}>
 		<ul className="navList">
+			<li onClick={handleClickMenu} className={styles.menuIcon}><MenuIcon fontSize="large"/></li>
 			<SearchInput data={data}/>
 			<CartWidget/>
-			<li className={styles.menuIcon}><MenuIcon fontSize="large"/></li>
 		</ul>
 		<div className={styles.divButton}>
 			{actualUser?.displayName
 			? (
 				<>
-				<p className={styles.userName}>{actualUser?.displayName} </p>
+				<p className={styles.userName}>david moina</p>
 				{actualUser?.photoURL 
 				? <img src={actualUser.photoURL} alt="" /> 
 				: <span className={styles.userImage}><AccountCircleIcon className={styles.userImage} fontSize="inherit"/></span>}
@@ -55,7 +52,7 @@ const NavRight = () => {
 				)
 			:(
 				<>
-				<SignInButton handleGoSignInPage={handleGoSignInPage}/>
+				<SignInButton mobile={true} handleGoSignInPage={handleGoSignInPage}/>
 				</>
 			)}
 		</div>

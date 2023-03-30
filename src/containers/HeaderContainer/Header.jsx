@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import NavLeft from '../../components/NavLeft/NavLeft';
 import NavRight from '../../components/NavRight/NavRight';
+import { AuthContext } from '../../context/AuthContext/AuthContext';
 import styles from './header.module.scss';
 import SignInButton from '../../components/SignInButton/SignInButton';
-import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext/AuthContext';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Header = () => {
-  const [menuActive, setMenuActive] = useState(false)
+
+  const [menuMobile, setMenuMobile] = useState(false);
+
   const { actualUser, logout } = useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const menuResponsive = () => {
-    setMenuActive(!menuActive)
+  const handleClickMenu = () => {
+    setMenuMobile(!menuMobile);
   }
 
   const handleGoSignInPage = () => {
@@ -27,50 +27,28 @@ const Header = () => {
 		try {
 			await logout()
 			navigate("/")
+      handleClickMenu()
 		} catch (error) {
 			console.log(error.message);
 		}
 	}
 
-  console.log(menuActive);
-
   return (
     <div className={styles.allContainer}>
-      <header className={`${styles.header} ${menuActive && styles.responsiveNav}`}>
-        <div className={styles.desktopNav}>
+      <header className={`${styles.header} ${menuMobile && styles.mobile}`}>
           <NavLeft/>
-          <NavRight menuResponsive={menuResponsive} menuActive={menuActive} />
-        </div>
-        <div className={styles.mobileMenu}>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/products">Products</Link></li>
-            <li><Link to="/cart"> Cart</Link></li>
-          </ul>
-          <div className={styles.userInfo}>
-            {actualUser?.displayName
-            ? (
-              <>
-              <div>
-
-              
-              <p className={styles.userName}>{actualUser?.displayName} </p>
-              {actualUser?.photoURL 
-              ? <img src={actualUser.photoURL} alt="" /> 
-              : <span className={styles.userImage}><AccountCircleIcon className={styles.userImage} fontSize="inherit"/></span>}
-              </div>
-              
-              <button className={styles.btnLogout} onClick={handleLogout}>Logout</button>
-              </>
-              )
-            :(
-              <>
-              <SignInButton handleGoSignInPage={handleGoSignInPage}/>
-              </>
-            )}
-            </div>
-        </div>
+          <NavRight handleClickMenu={handleClickMenu}/>
       </header>
+      <div className={`${styles.mobileNav} ${menuMobile && styles.expanded}`}>
+        <ul>
+          <li onClick={handleClickMenu}><Link to="/">Home</Link></li>
+          <li onClick={handleClickMenu}><Link to="/products">Products</Link></li>
+        </ul>
+        {actualUser 
+        ? <button onClick={handleLogout}>Logout</button>
+        : <SignInButton handleGoSignInPage={handleGoSignInPage}/>
+          }
+      </div>
       <Outlet/>
       <Footer/>
     </div>

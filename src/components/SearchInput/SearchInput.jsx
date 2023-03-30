@@ -35,12 +35,12 @@ const SearchInput = ({data}) => {
       </button>
       <input onChange={handleSearch} placeholder="search.." value={text} className={styles.input} name="text" type="text" />
       <div className={styles.resultsDiv}>
-      <ul>
-        {filteredProducts.map(item => (
-          <li onClick={() => handleNavigate(item)} key={item.id}>{item.title}</li>
-        ))}
-      </ul>
-    </div>
+        <ul>
+          {filteredProducts.map(item => (
+            <li onClick={() => handleNavigate(item)} key={item.id}>{item.title}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

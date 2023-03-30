@@ -9,10 +9,10 @@ const ProductOrderShipped = ({product}) => {
     <>
     <div className={styles.orderProducts}>
       <img src={image} alt={title} />
-      <div>
+      <div className={styles.prodDescription}>
         <h4>{title}</h4>
         <p>{description}</p>
-        <div>
+        <div className={styles.prices}>
           <span>Quantity: <b>{quantity}</b></span>
           <span>Price: <b>{price}€</b></span>
         </div>

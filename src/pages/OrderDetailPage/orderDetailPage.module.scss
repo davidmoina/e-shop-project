@@ -5,6 +5,7 @@
   height: fit-content;
   max-width: 1167px;
   margin: 5em auto 3em;
+  padding: 1em;
 
   .ordersNumContainer {
 
@@ -14,6 +15,7 @@
 
     p {
       color: var.$secondary-color;
+
 
       &:nth-child(4) {
         display: block;
@@ -31,7 +33,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto 1fr 1fr;
-    grid-auto-rows: minmax(100px, auto);
+    // grid-auto-rows: minmax(100px, auto);
     gap: 1em;
 
     & > div {
@@ -113,4 +115,51 @@
       }
     }
   }
+}
+
+@media (max-width: 700px) {
+
+  .orderDetailContainer {
+    .orderContainer {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr 1fr 1fr;
+  
+      & > div {
+  
+        span, p {
+          color: var.$secondary-color;
+        }
+      }
+  
+      .products {
+        grid-column: 1/2;
+      }
+  
+      .addressContainer {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        flex-direction: column;
+
+        & > div {
+          width: 100%;
+        }
+      }
+  
+      .paymentContainer {
+        grid-column: 1/ 2;
+        grid-row: 3/ 4;
+        flex-direction: column;
+
+        & > div {
+          width: 100%;
+        }
+      }
+
+      .pricingContainer {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+      }
+  }
+  }
+  
 }

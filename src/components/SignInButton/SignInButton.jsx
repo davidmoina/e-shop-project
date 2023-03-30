@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './signinbutton.module.scss';
 
-const SignInButton = ({handleGoSignInPage}) => {
+const SignInButton = ({handleGoSignInPage, mobile}) => {
     return (
-        <button onClick={handleGoSignInPage} className={styles.signButton}>Sign In</button>
+        <button onClick={handleGoSignInPage} className={`${styles.signButton} ${mobile && styles.hideBtn}`}>Sign In</button>
     )
 }
 

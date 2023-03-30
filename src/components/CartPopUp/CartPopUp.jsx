@@ -11,11 +11,11 @@ function CartPopUp({active, hidePopUp}) {
 
     const handleGoToCart = () => {
         hidePopUp();
-        navigate("/cart")
+        navigate("/cart");
     }
 
     return (
-        <div id="hello" className={`${styles.containerCartProducts} ${!active && styles.hiddenCart}`}>
+        <div id="hello" className={`${styles.containerCartProducts} ${active && styles.hiddenCart}`}>
         {productsCart.length
         ? (
             <>
