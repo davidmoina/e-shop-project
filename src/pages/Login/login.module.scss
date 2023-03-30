@@ -8,7 +8,8 @@
   align-items: center;
 
   .formContainer {
-    width: fit-content;
+    width: 90%;
+    max-width: fit-content;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -22,6 +23,8 @@
       0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: 11px;
     font-family: "Inter", sans-serif;
+
+    
 
     .logoContainer {
       box-sizing: border-box;

@@ -79,3 +79,15 @@
 
   }
 }
+
+@media (max-width: 1154px) {
+
+  .checkoutPageContainer {
+    grid-template-columns: 1fr;
+
+    .orderContainer {
+      grid-column: 1/2;
+      padding: 1em;
+    }
+  }
+}

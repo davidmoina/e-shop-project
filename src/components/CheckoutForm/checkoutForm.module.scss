@@ -70,3 +70,36 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 585px) {
+  .form {
+    grid-template-columns: 1fr;
+    padding: 1em;
+
+    h3 {
+      grid-column: 1/2;
+      margin: 0.5em 0;
+      color: var.$secondary-color;
+    }
+
+    div{
+      grid-column: 1/2;
+      flex-direction: column;
+    }
+  
+    .largeItem {
+      grid-column: 1/2;
+    }
+  
+    .littleDiv {
+      grid-column: span 1;
+    }
+    .checkBoxDiv {
+      grid-column: 1 / 2;
+    }
+  
+    .btnCheckout {
+      grid-column: 1/2;
+    }
+  }
+}

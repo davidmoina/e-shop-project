@@ -76,3 +76,18 @@
   
   
 }
+@media (max-width: 1054px) {
+  .cartPageContainer {
+    grid-template-columns: 90%;
+    justify-content: center;
+
+
+    h2{
+      grid-column: 1/2;
+    }
+
+    .asideSection {
+      grid-column: 1/2;
+    }
+  }
+}

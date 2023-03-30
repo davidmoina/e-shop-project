@@ -10,6 +10,7 @@
     justify-content: space-between;
     margin: 0 auto;
     color: var.$white-color;
+    padding: 1em;
 
     .brand {
       display: flex;
@@ -22,9 +23,12 @@
 
     .listsSection {
       display: flex;
+      gap: 1em;
+      justify-content: center;
 
       ul {
         list-style: none;
+        padding: 0;
 
         li{
           margin-bottom: 6px;
@@ -39,3 +43,15 @@
     margin: 1em auto;
   }
 }
+
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+
+    .brand {
+      justify-content: center;
+    }
+  }
+} 

@@ -4,15 +4,16 @@ import { db } from '../Firebase/config';
 
 const useFirebase = (category, productId) => {
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
 
     (async() =>{
+      setLoading(true);
       try {
-        setLoading(true);
+        
         if(productId) {
           const docRef = doc(db, "products", productId);
           const docSnap = await getDoc(docRef);

@@ -9,8 +9,9 @@
   border-bottom: 2px solid var.$gray-500;
 
   img {
-    width: 150px;
-    height: 150px;
+    width: 40%;
+    max-width: 150px;
+    max-height: 150px;
     padding: 1em;
     object-fit: contain;
     background-color: #FFFFFF;
@@ -67,4 +68,21 @@
 
 .itemWhite {
   color: var.$white-color;
+}
+
+@media (max-width:756px) {
+  .itemContainer {
+    height: 250px;
+
+    .productDetailsCart {
+      .closeSpan {
+        right: none;
+        left: 95%;
+      }
+    }
+
+    
+  }
+
+  
 }

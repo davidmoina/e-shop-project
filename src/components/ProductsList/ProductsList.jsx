@@ -9,16 +9,16 @@ const ProductsList = () => {
 
   const { collection } = useParams();
 
-  const { data } = useFirebase(collection);
+  const { data, loading } = useFirebase(collection);
 
   return (
     <>
-    {!data 
+    {!(data?.length > 0 )
     ? <CustomLoader/> 
     : 
     <div className={styles.productsList}>
-      {data?.map(prod => {
-        return <ProductCard prod={prod} key={prod.id}/>
+      {data.map((prod) => {
+        return <ProductCard key={prod.id} prod={prod}/>
       })}
     </div>
     }
