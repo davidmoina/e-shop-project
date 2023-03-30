@@ -15,7 +15,7 @@ function CartWidget() {
     return (
         <>
         <div className={styles.widgetContainer}>
-            <li onClick={() => setActive(!active)}>
+            <li className={styles.basketContainer} onClick={() => setActive(!active)}>
                 <ShoppingBasketIcon style={{fontSize: 25}}/>
                 {countProducts > 0 && <span className={styles.totalSpan}>{countProducts}</span>}
             </li>
